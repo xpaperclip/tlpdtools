@@ -1,0 +1,23 @@
+﻿<doc>
+  <style name="Heading" color="#b96464" fontStyle="Bold" />
+  <style name="Template" color="Maroon" fontStyle="Bold" />
+  <style name="Argument" color="Green" />
+  <style name="Comment" color="Gray" />
+  <style name="Link" color="DarkBlue" /><!--fontStyle="Underline"-->
+
+  <rule style="Comment" options="Singleline">(&lt;!--.*?--&gt;)|(&lt;!--.*)</rule>
+  <rule style="Comment" options="Singleline,RightToLeft">(&lt;!--.*?--&gt;)|(.*--&gt;)</rule>
+
+  <rule style="Link">\[(.*?)\]</rule>
+  <rule style="Link">\[\[(.*?)\]\]</rule>
+  
+  <rule style="Heading">==(.*?)==</rule>
+  <rule style="Heading">===(.*?)===</rule>
+  <rule style="Heading">====(.*?)====</rule>
+  <rule style="Heading">====(.*?)====</rule>
+
+  <rule style="Argument">\|(\w*)=</rule>
+
+  <rule style="Template">{{([A-Za-z0-9_:]*)</rule>
+  <rule style="Template">}}</rule>
+</doc>

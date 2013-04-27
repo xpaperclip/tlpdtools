@@ -1,0 +1,24 @@
+﻿<doc>
+  <style name="Dim" color="DarkGray" />
+  
+  <style name="Terran" color="DarkBlue" backColor="#B8B8F2" />
+  <style name="Zerg" color="Maroon" backColor="#F2B8B8" />
+  <style name="Protoss" color="DarkGreen" backColor="#B8F2B8" />
+  <style name="Random" color="Olive" backColor="#F2E8B8" />
+  <style name="Map" color="Black" backColor="#ece6ff" />
+
+  <style name="Operator" color="Red" />
+
+  <rule style="Dim">\[b\]</rule>
+  <rule style="Dim">\[\/b\]</rule>
+  <rule style="Operator">&gt;</rule>
+  <rule style="Operator">&lt;</rule>
+  <rule style="Map">\[tlpd#maps#\d*#[a-zA-Z0-9\-]*\](.*?)\[\/tlpd\]</rule>
+  <rule style="Terran">\[tlpd#players#\d*#T\](.*?)\[\/tlpd\]</rule>
+  <rule style="Zerg">\[tlpd#players#\d*#Z\](.*?)\[\/tlpd\]</rule>
+  <rule style="Protoss">\[tlpd#players#\d*#P\](.*?)\[\/tlpd\]</rule>
+  <rule style="Random">\[tlpd#players#\d*#R\](.*?)\[\/tlpd\]</rule>
+
+  <rule style="Dim">\[tlpd(.*?)\]</rule>
+  <rule style="Dim">\[\/tlpd\]</rule>
+</doc>

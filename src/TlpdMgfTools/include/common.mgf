@@ -1,0 +1,14 @@
+﻿$map Unknown = [tlpd#maps#0]
+
+$map Antiga Shipyard = [tlpd#maps#500]
+$map Cloud Kingdom   = [tlpd#maps#510]
+$map Entombed Valley = [tlpd#maps#527]
+$map Daybreak        = [tlpd#maps#479]
+$map Ohana           = [tlpd#maps#548]
+$map Whirlwind       = [tlpd#maps#550]
+$map Muspelheim      = [tlpd#maps#551]
+
+$map Newkirk City  = [tlpd#maps#583]
+$map Akilon Wastes = [tlpd#maps#558]
+$map Star Station  = [tlpd#maps#559]
+$map Neo Planet S  = [tlpd#maps#568]

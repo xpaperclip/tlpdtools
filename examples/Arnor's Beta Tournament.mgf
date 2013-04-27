@@ -1,0 +1,15 @@
+[tlpd#players#3045#Z#hots]nomatch[/tlpd]
+[tlpd#players#3327#T#sc2-international]KayZ[/tlpd]
+[tlpd#players#1771#R#sc2-international]Nerchio[/tlpd]
+[tlpd#players#3355#Z#hots]goswser[/tlpd]
+
+$map Fractured Glacier = [tlpd#maps#561#A#Desert]
+
+[tlpd#maps#558#A#Desert]Akilon Wastes[/tlpd]
+
+$series Fractured Glacier
+2-1 nomatch KayZ
+2-1 Nerchio goswser
+
+$series Akilon Wastes
+1-3 nomatch Nerchio

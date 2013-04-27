@@ -1,0 +1,271 @@
+; maps
+$map Antiga Shipyard = [tlpd#maps#500]
+$map Cloud Kingdom   = [tlpd#maps#510]
+$map Entombed Valley = [tlpd#maps#527]
+$map Daybreak        = [tlpd#maps#479]
+$map Ohana           = [tlpd#maps#548]
+$map Whirlwind       = [tlpd#maps#550]
+$map Muspelheim      = [tlpd#maps#551]
+
+; players
+$player Kas      = [tlpd#players#1693#T#hots]Kas[/tlpd]
+$player Snute    = [tlpd#players#2834#Z#hots]Snute[/tlpd]
+$player Grubby   = [tlpd#players#2159#P#hots]Grubby[/tlpd]
+$player Sheth    = [tlpd#players#1301#Z#sc2-international]Sheth[/tlpd]
+$player SeleCT   = [tlpd#players#1825#T#sc2-international]SeleCT[/tlpd]
+$player LucifroN = [tlpd#players#1603#T#hots]LucifroN[/tlpd]
+$player TitaN    = [tlpd#players#3156#P#sc2-international]TitaN[/tlpd]
+$player MorroW   = [tlpd#players#1212#T#hots]MorroW[/tlpd]
+$player Socke    = [tlpd#players#1460#P#hots]Socke[/tlpd]
+
+Kas > Snute : Muspelheim
+Kas < Snute : Ohana
+Kas < Snute : Antiga Shipyard
+Kas > Snute : Whirlwind
+Kas < Snute : Cloud Kingdom
+Kas > Snute : Entombed Valley
+Kas > Snute : Daybreak
+Kas > Snute : Ohana
+Kas < Snute : Whirlwind
+Kas > Snute : Daybreak
+
+$end
+Grubby > Sheth : Daybreak
+Grubby > Sheth : Cloud Kingdom
+Grubby > Sheth : Antiga Shipyard
+Grubby > Sheth : Entombed Valley
+Grubby > Sheth : Ohana
+Grubby < Sheth : Whirlwind
+Grubby > Sheth : Muspelheim
+Grubby < Sheth : Cloud Kingdom
+Grubby < Sheth : Entombed Valley
+Grubby > Sheth : Ohana
+
+$end
+SeleCT < LucifroN : Daybreak
+SeleCT > LucifroN : Muspelheim
+SeleCT > LucifroN : Antiga Shipyard
+SeleCT > LucifroN : Entombed Valley
+SeleCT < LucifroN : Ohana
+SeleCT < LucifroN : Cloud Kingdom
+SeleCT < LucifroN : Whirlwind
+SeleCT < LucifroN : Daybreak
+SeleCT < LucifroN : Ohana
+SeleCT < LucifroN : Cloud Kingdom
+
+$end
+Kas < SeleCT : Whirlwind
+Kas > SeleCT : Entombed Valley
+Kas > SeleCT : Daybreak
+Kas > SeleCT : Ohana
+Kas > SeleCT : Muspelheim
+Kas > SeleCT : Antiga Shipyard
+Kas < SeleCT : Cloud Kingdom
+Kas > SeleCT : Whirlwind
+Kas > SeleCT : Entombed Valley
+Kas < SeleCT : Ohana
+
+$end
+Grubby < Kas : Whirlwind
+Grubby > Kas : Antiga Shipyard
+Grubby > Kas : Daybreak
+Grubby < Kas : Ohana
+Grubby < Kas : Cloud Kingdom
+Grubby > Kas : Muspelheim
+Grubby > Kas : Entombed Valley
+Grubby > Kas : Daybreak
+Grubby > Kas : Ohana
+Grubby > Kas : Entombed Valley
+
+$end
+SeleCT > TitaN : Ohana
+SeleCT > TitaN : Cloud Kingdom
+SeleCT < TitaN : Entombed Valley
+SeleCT > TitaN : Muspelheim
+SeleCT < TitaN : Whirlwind
+SeleCT < TitaN : Antiga Shipyard
+SeleCT < TitaN : Daybreak
+SeleCT < TitaN : Cloud Kingdom
+SeleCT > TitaN : Entombed Valley
+SeleCT < TitaN : Antiga Shipyard
+
+$end
+Sheth < Snute : Cloud Kingdom
+Sheth < Snute : Antiga Shipyard
+Sheth < Snute : Entombed Valley
+Sheth > Snute : Muspelheim
+Sheth < Snute : Ohana
+Sheth > Snute : Whirlwind
+Sheth < Snute : Daybreak
+Sheth < Snute : Cloud Kingdom
+Sheth < Snute : Ohana
+Sheth > Snute : Daybreak
+
+$end
+Grubby > TitaN : Muspelheim
+Grubby < TitaN : Whirlwind
+Grubby < TitaN : Antiga Shipyard
+Grubby < TitaN : Cloud Kingdom
+Grubby < TitaN : Ohana
+Grubby > TitaN : Daybreak
+Grubby < TitaN : Entombed Valley
+Grubby > TitaN : Antiga Shipyard
+Grubby < TitaN : Cloud Kingdom
+Grubby > TitaN : Daybreak
+
+$end
+Grubby > MorroW : Antiga Shipyard
+Grubby < MorroW : Muspelheim
+Grubby > MorroW : Ohana
+Grubby > MorroW : Daybreak
+Grubby < MorroW : Entombed Valley
+Grubby > MorroW : Cloud Kingdom
+Grubby > MorroW : Whirlwind
+Grubby < MorroW : Muspelheim
+Grubby < MorroW : Ohana
+Grubby > MorroW : Daybreak
+
+$end
+LucifroN < Sheth : Muspelheim
+LucifroN > Sheth : Antiga Shipyard
+LucifroN < Sheth : Whirlwind
+LucifroN < Sheth : Cloud Kingdom
+LucifroN > Sheth : Ohana
+LucifroN > Sheth : Entombed Valley
+LucifroN > Sheth : Daybreak
+LucifroN > Sheth : Antiga Shipyard
+LucifroN > Sheth : Cloud Kingdom
+LucifroN > Sheth : Daybreak
+
+$end
+LucifroN < Snute : Whirlwind
+LucifroN < Snute : Cloud Kingdom
+LucifroN < Snute : Antiga Shipyard
+LucifroN < Snute : Entombed Valley
+LucifroN > Snute : Daybreak
+LucifroN > Snute : Muspelheim
+LucifroN > Snute : Ohana
+LucifroN < Snute : Cloud Kingdom
+LucifroN < Snute : Daybreak
+LucifroN > Snute : Ohana
+
+$end
+Socke < TitaN : Muspelheim
+Socke < TitaN : Cloud Kingdom
+Socke < TitaN : Antiga Shipyard
+Socke > TitaN : Whirlwind
+Socke < TitaN : Entombed Valley
+Socke > TitaN : Ohana
+Socke < TitaN : Daybreak
+Socke > TitaN : Entombed Valley
+Socke < TitaN : Ohana
+Socke > TitaN : Daybreak
+
+$end
+TitaN < MorroW : Ohana
+TitaN > MorroW : Daybreak
+TitaN > MorroW : Antiga Shipyard
+TitaN > MorroW : Entombed Valley
+TitaN > MorroW : Whirlwind
+TitaN > MorroW : Cloud Kingdom
+TitaN > MorroW : Muspelheim
+TitaN > MorroW : Ohana
+TitaN > MorroW : Antiga Shipyard
+TitaN > MorroW : Muspelheim
+
+$end
+Kas < MorroW : Entombed Valley
+Kas > MorroW : Muspelheim
+Kas > MorroW : Cloud Kingdom
+Kas > MorroW : Daybreak
+Kas < MorroW : Ohana
+Kas > MorroW : Whirlwind
+Kas < MorroW : Antiga Shipyard
+Kas > MorroW : Ohana
+Kas > MorroW : Whirlwind
+Kas > MorroW : Antiga Shipyard
+
+$end
+Grubby < Snute : Daybreak
+Grubby < Snute : Muspelheim
+Grubby > Snute : Ohana
+Grubby < Snute : Antiga Shipyard
+Grubby < Snute : Cloud Kingdom
+Grubby > Snute : Entombed Valley
+Grubby < Snute : Whirlwind
+Grubby > Snute : Daybreak
+Grubby > Snute : Muspelheim
+Grubby > Snute : Entombed Valley
+
+$end
+Socke < Kas : Ohana
+Socke < Kas : Daybreak
+Socke < Kas : Entombed Valley
+Socke > Kas : Muspelheim
+Socke > Kas : Whirlwind
+Socke < Kas : Cloud Kingdom
+Socke < Kas : Antiga Shipyard
+Socke < Kas : Ohana
+Socke < Kas : Daybreak
+Socke < Kas : Whirlwind
+
+$end
+Grubby < Socke : Entombed Valley
+Grubby < Socke : Cloud Kingdom
+Grubby < Socke : Ohana
+Grubby < Socke : Whirlwind
+Grubby < Socke : Antiga Shipyard
+Grubby > Socke : Daybreak
+Grubby < Socke : Muspelheim
+Grubby < Socke : Entombed Valley
+Grubby < Socke : Daybreak
+Grubby < Socke : Muspelheim
+
+$end
+Sheth > MorroW : Cloud Kingdom
+Sheth > MorroW : Whirlwind
+Sheth > MorroW : Ohana
+Sheth > MorroW : Entombed Valley
+Sheth > MorroW : Daybreak
+Sheth > MorroW : Antiga Shipyard
+Sheth > MorroW : Muspelheim
+Sheth < MorroW : Ohana
+Sheth < MorroW : Daybreak
+Sheth > MorroW : Cloud Kingdom
+
+$end
+LucifroN > Kas : Whirlwind
+LucifroN > Kas : Muspelheim
+LucifroN < Kas : Antiga Shipyard
+LucifroN < Kas : Entombed Valley
+LucifroN > Kas : Cloud Kingdom
+LucifroN > Kas : Daybreak
+LucifroN > Kas : Ohana
+LucifroN > Kas : Whirlwind
+LucifroN < Kas : Entombed Valley
+LucifroN < Kas : Daybreak
+
+$end
+Sheth < Socke : Cloud Kingdom
+Sheth < Socke : Daybreak
+Sheth < Socke : Antiga Shipyard
+Sheth < Socke : Ohana
+Sheth > Socke : Whirlwind
+Sheth < Socke : Entombed Valley
+Sheth > Socke : Muspelheim
+Sheth < Socke : Cloud Kingdom
+Sheth > Socke : Whirlwind
+Sheth < Socke : Muspelheim
+
+$end
+LucifroN > TitaN : Cloud Kingdom
+LucifroN < TitaN : Entombed Valley
+LucifroN > TitaN : Whirlwind
+LucifroN > TitaN : Ohana
+LucifroN > TitaN : Daybreak
+LucifroN < TitaN : Muspelheim
+LucifroN > TitaN : Antiga Shipyard
+LucifroN > TitaN : Entombed Valley
+LucifroN > TitaN : Whirlwind
+LucifroN > TitaN : Daybreak
+

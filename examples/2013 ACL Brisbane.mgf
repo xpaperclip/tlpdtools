@@ -1,0 +1,74 @@
+; maps
+[tlpd#maps#558#hots#Desert]Akilon Wastes[/tlpd]
+$map Bel'Shir Vestige = [tlpd#maps#563#hots]
+$map Daybreak = [tlpd#maps#479#hots]
+$map Whirlwind = [tlpd#maps#550#hots]
+[tlpd#maps#568#hots#Ice]Neo Planet S[/tlpd]
+$map Newkirk Precinct = [tlpd#maps#583]
+[tlpd#maps#574#hots#Badlands]Akilon Flats[/tlpd]
+$map (Unknown) = [tlpd#maps#0]
+
+; players
+[tlpd#players#4654#Z#hots]Petraeus[/tlpd]
+[tlpd#players#950#Z#hots]KingKong[/tlpd]
+$player Light = [tlpd#players#2958#P#hots]iMLight[/tlpd]
+[tlpd#players#2526#Z#hots]PiG[/tlpd]
+[tlpd#players#1602#Z#hots]mOOnGLaDe[/tlpd]
+[tlpd#players#5673#Z#hots]NXZ[/tlpd]
+[tlpd#players#2876#Z#hots]JazBas[/tlpd]
+[tlpd#players#2574#T#hots]deth[/tlpd]
+
+; -- 8DEBracket --
+; WR1
+Petraeus < mOOnGLaDe : Akilon Wastes
+Petraeus > mOOnGLaDe : Bel'Shir Vestige
+Petraeus > mOOnGLaDe : Daybreak
+KingKong > NXZ : Akilon Wastes
+KingKong > NXZ : Daybreak
+Light > JazBas : Whirlwind
+Light < JazBas : Neo Planet S
+Light < JazBas : Daybreak
+PiG > deth : Akilon Wastes
+PiG > deth : Daybreak
+
+; WR2
+Petraeus > KingKong : Akilon Wastes
+Petraeus < KingKong : Daybreak
+Petraeus < KingKong : Bel'Shir Vestige
+JazBas < PiG : Akilon Wastes
+JazBas < PiG : Whirlwind
+
+; WF
+KingKong > PiG : Daybreak
+KingKong > PiG : Bel'Shir Vestige
+
+; LR1
+NXZ > mOOnGLaDe : Newkirk Precinct
+NXZ > mOOnGLaDe : Daybreak
+deth < Light : Akilon Wastes
+deth < Light : Daybreak
+
+; LR2
+JazBas < NXZ : Akilon Wastes
+JazBas < NXZ : Newkirk Precinct
+Petraeus < Light : Whirlwind
+Petraeus > Light : Akilon Flats
+Petraeus < Light : (Unknown)
+
+; LR3
+NXZ < Light : Neo Planet S
+NXZ > Light : Newkirk Precinct
+NXZ < Light : Daybreak
+
+; LF
+PiG > Light : Daybreak
+PiG > Light : Akilon Wastes
+
+; GF
+KingKong > PiG : Neo Planet S
+KingKong > PiG : Bel'Shir Vestige
+
+; -- 2SEBracket --
+JazBas < Petraeus: Bel'Shir Vestige
+JazBas < Petraeus : Akilon Wastes
+

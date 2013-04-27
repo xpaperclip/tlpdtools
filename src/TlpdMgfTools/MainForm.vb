@@ -165,6 +165,7 @@ Class MainForm
     Private Sub ProcessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProcessToolStripMenuItem.Click, btnProcess.Click
         If CurrentTab Is Nothing Then Return
 
+        _initialTab = Nothing
         Dim data As String = CurrentTab.Process()
         Select Case CurrentTab.Scheme
             Case DocumentScheme.Lp
@@ -176,6 +177,7 @@ Class MainForm
     Private Sub ProcessSelectionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProcessSelectionToolStripMenuItem.Click
         If CurrentTab Is Nothing Then Return
 
+        _initialTab = Nothing
         Dim data As String = CurrentTab.Process(True)
         Select Case CurrentTab.Scheme
             Case DocumentScheme.Lp

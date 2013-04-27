@@ -138,19 +138,20 @@ Class DocumentTabPage
         End If
     End Sub
     Private Sub tb_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles tb.MouseUp
-        If mgfService Is Nothing Then Return
-
         Dim p As Place = tb.PointToPlace(e.Location)
         Dim contextMenuLink As Boolean = False
-        If mgfService.CharIsHyperlink(p) Then
-            Dim url As String = mgfService.GetLinkUrl(p, CType(frm.cmbTlpdDatabase.SelectedItem, TlpdDatabase))
-            Select Case e.Button
-                Case Windows.Forms.MouseButtons.Left
-                    'do nothing
-                Case Windows.Forms.MouseButtons.Right
-                    frm.mnuContext.Tag = url
-                    contextMenuLink = True
-            End Select
+
+        If Not mgfService Is Nothing Then
+            If mgfService.CharIsHyperlink(p) Then
+                Dim url As String = mgfService.GetLinkUrl(p, CType(frm.cmbTlpdDatabase.SelectedItem, TlpdDatabase))
+                Select Case e.Button
+                    Case Windows.Forms.MouseButtons.Left
+                        'do nothing
+                    Case Windows.Forms.MouseButtons.Right
+                        frm.mnuContext.Tag = url
+                        contextMenuLink = True
+                End Select
+            End If
         End If
 
         frm.LinkContextMenuSeparator.Visible = contextMenuLink

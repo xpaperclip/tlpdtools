@@ -46,7 +46,7 @@ Partial Class DownloadProgressForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.barProgress.Location = New System.Drawing.Point(41, 52)
         Me.barProgress.Name = "barProgress"
-        Me.barProgress.Size = New System.Drawing.Size(284, 19)
+        Me.barProgress.Size = New System.Drawing.Size(284, 16)
         Me.barProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee
         Me.barProgress.TabIndex = 2
         Me.barProgress.UseWaitCursor = True

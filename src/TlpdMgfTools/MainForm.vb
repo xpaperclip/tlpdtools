@@ -230,19 +230,16 @@ Class MainForm
 
 #Region " Context Menu "
 
-    Private Sub OpenLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenLinkToolStripMenuItem.Click
+    Private Sub Open0ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Open0ToolStripContextMenuItem.Click
         Dim tag As String = mnuContext.Tag.ToString()
-        If tag.StartsWith("$") Then
-            OpenTab(tag.Substring(1))
-        Else
-            Diagnostics.Process.Start(mnuContext.Tag.ToString())
-        End If
+        OpenTab(tag)
     End Sub
-    Private Sub CopyLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyLinkToolStripMenuItem.Click
+    Private Sub OpenLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenLinkToolStripContextMenuItem.Click
         Dim tag As String = mnuContext.Tag.ToString()
-        If tag.StartsWith("$") Then
-            tag = tag.Substring(1)
-        End If
+        Diagnostics.Process.Start(mnuContext.Tag.ToString())
+    End Sub
+    Private Sub CopyLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyLinkToolStripContextMenuItem.Click
+        Dim tag As String = mnuContext.Tag.ToString()
         Clipboard.SetDataObject(tag)
     End Sub
 
@@ -488,6 +485,7 @@ Class MainForm
         _initialTab = Nothing
 
         If tab.tb.IsChanged Then
+            tabControl.SelectedTab = tab
             Select Case MessageBox.Show("Do you want to save changes before closing this tab?", tab.BaseText, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
                 Case Windows.Forms.DialogResult.Yes
                     SaveTab(tab)

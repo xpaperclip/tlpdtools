@@ -91,8 +91,8 @@ Partial Class MainForm
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LinkContextMenuSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenLinkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CopyLinkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenLinkToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyLinkToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuTabContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SaveToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseTabToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -100,6 +100,7 @@ Partial Class MainForm
         Me.CloseAllButThisToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenContainingFolderToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Open0ToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuMenu.SuspendLayout()
         Me.tlsToolbar.SuspendLayout()
         Me.mnuContext.SuspendLayout()
@@ -519,9 +520,9 @@ Partial Class MainForm
         '
         'mnuContext
         '
-        Me.mnuContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TLPDizeToolStripContextMenuItem, Me.ToolStripMenuItem6, Me.CutToolStripContextMenuItem, Me.CopyToolStripContextMenuItem, Me.PasteToolStripContextMenuItem, Me.ToolStripMenuItem7, Me.SelectAllToolStripContextMenuItem, Me.LinkContextMenuSeparator, Me.OpenLinkToolStripMenuItem, Me.CopyLinkToolStripMenuItem})
+        Me.mnuContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Open0ToolStripContextMenuItem, Me.OpenLinkToolStripContextMenuItem, Me.CopyLinkToolStripContextMenuItem, Me.LinkContextMenuSeparator, Me.TLPDizeToolStripContextMenuItem, Me.ToolStripMenuItem6, Me.CutToolStripContextMenuItem, Me.CopyToolStripContextMenuItem, Me.PasteToolStripContextMenuItem, Me.ToolStripMenuItem7, Me.SelectAllToolStripContextMenuItem})
         Me.mnuContext.Name = "mnuContext"
-        Me.mnuContext.Size = New System.Drawing.Size(193, 176)
+        Me.mnuContext.Size = New System.Drawing.Size(193, 220)
         '
         'TLPDizeToolStripContextMenuItem
         '
@@ -575,18 +576,18 @@ Partial Class MainForm
         Me.LinkContextMenuSeparator.Name = "LinkContextMenuSeparator"
         Me.LinkContextMenuSeparator.Size = New System.Drawing.Size(189, 6)
         '
-        'OpenLinkToolStripMenuItem
+        'OpenLinkToolStripContextMenuItem
         '
-        Me.OpenLinkToolStripMenuItem.Image = CType(resources.GetObject("OpenLinkToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.OpenLinkToolStripMenuItem.Name = "OpenLinkToolStripMenuItem"
-        Me.OpenLinkToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.OpenLinkToolStripMenuItem.Text = "&Open link in browser..."
+        Me.OpenLinkToolStripContextMenuItem.Image = CType(resources.GetObject("OpenLinkToolStripContextMenuItem.Image"), System.Drawing.Image)
+        Me.OpenLinkToolStripContextMenuItem.Name = "OpenLinkToolStripContextMenuItem"
+        Me.OpenLinkToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.OpenLinkToolStripContextMenuItem.Text = "&Open link in browser..."
         '
-        'CopyLinkToolStripMenuItem
+        'CopyLinkToolStripContextMenuItem
         '
-        Me.CopyLinkToolStripMenuItem.Name = "CopyLinkToolStripMenuItem"
-        Me.CopyLinkToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.CopyLinkToolStripMenuItem.Text = "Copy &link address"
+        Me.CopyLinkToolStripContextMenuItem.Name = "CopyLinkToolStripContextMenuItem"
+        Me.CopyLinkToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.CopyLinkToolStripContextMenuItem.Text = "Copy &link address"
         '
         'mnuTabContext
         '
@@ -630,6 +631,13 @@ Partial Class MainForm
         Me.OpenContainingFolderToolStripContextMenuItem.Name = "OpenContainingFolderToolStripContextMenuItem"
         Me.OpenContainingFolderToolStripContextMenuItem.Size = New System.Drawing.Size(201, 22)
         Me.OpenContainingFolderToolStripContextMenuItem.Text = "Open Con&taining Folder"
+        '
+        'Open0ToolStripContextMenuItem
+        '
+        Me.Open0ToolStripContextMenuItem.Image = CType(resources.GetObject("Open0ToolStripContextMenuItem.Image"), System.Drawing.Image)
+        Me.Open0ToolStripContextMenuItem.Name = "Open0ToolStripContextMenuItem"
+        Me.Open0ToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.Open0ToolStripContextMenuItem.Text = "&Open {0}"
         '
         'MainForm
         '
@@ -715,8 +723,8 @@ Partial Class MainForm
     Friend WithEvents PasteToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SelectAllToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents OpenLinkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CopyLinkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OpenLinkToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CopyLinkToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LinkContextMenuSeparator As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents CloseAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -730,4 +738,5 @@ Partial Class MainForm
     Friend WithEvents OpenContainingFolderToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GithubToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents Open0ToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

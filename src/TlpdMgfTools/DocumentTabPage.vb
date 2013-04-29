@@ -1,5 +1,6 @@
 ﻿Imports System
 Imports System.Drawing
+Imports System.IO
 Imports System.Windows.Forms
 Imports FastColoredTextBoxNS
 
@@ -138,28 +139,32 @@ Class DocumentTabPage
         End If
     End Sub
     Private Sub tb_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles tb.MouseUp
-        Dim p As Place = tb.PointToPlace(e.Location)
-        Dim contextMenuLink As Boolean = False
-
-        If Not mgfService Is Nothing Then
-            If mgfService.CharIsHyperlink(p) Then
-                Dim url As String = mgfService.GetLinkUrl(p, CType(frm.cmbTlpdDatabase.SelectedItem, TlpdDatabase))
-                Select Case e.Button
-                    Case Windows.Forms.MouseButtons.Left
-                        'do nothing
-                    Case Windows.Forms.MouseButtons.Right
-                        frm.mnuContext.Tag = url
-                        contextMenuLink = True
-                End Select
-            End If
-        End If
-
-        frm.LinkContextMenuSeparator.Visible = contextMenuLink
-        frm.OpenLinkToolStripMenuItem.Visible = contextMenuLink
-        frm.CopyLinkToolStripMenuItem.Visible = contextMenuLink
-
         Select Case e.Button
             Case Windows.Forms.MouseButtons.Right
+                Dim contextMenuLink As Boolean = False
+                frm.Open0ToolStripContextMenuItem.Visible = False
+                frm.OpenLinkToolStripContextMenuItem.Visible = False
+
+                If Not mgfService Is Nothing Then
+                    Dim p As Place = tb.PointToPlace(e.Location)
+                    If mgfService.CharIsHyperlink(p) Then
+                        Dim url As String = mgfService.GetLinkUrl(p, CType(frm.cmbTlpdDatabase.SelectedItem, TlpdDatabase))
+                        If url.StartsWith("$") Then
+                            url = url.Substring(1)
+                            frm.mnuContext.Tag = url
+                            frm.Open0ToolStripContextMenuItem.Visible = True
+                            frm.Open0ToolStripContextMenuItem.Text = "Open " + Path.GetFileName(url)
+                        Else
+                            frm.mnuContext.Tag = url
+                            frm.OpenLinkToolStripContextMenuItem.Visible = True
+                        End If
+                        contextMenuLink = True
+                    End If
+                End If
+
+                frm.LinkContextMenuSeparator.Visible = contextMenuLink
+                frm.CopyLinkToolStripContextMenuItem.Visible = contextMenuLink
+
                 frm.TLPDizeToolStripContextMenuItem.Enabled = (tb.SelectedText.Length > 0)
                 frm.mnuContext.Show(tb, e.Location)
         End Select

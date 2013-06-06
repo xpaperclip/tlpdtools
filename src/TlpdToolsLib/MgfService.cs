@@ -66,6 +66,8 @@ public class MgfService
     private readonly Dictionary<string, TlpdEntity> players = new Dictionary<string, TlpdEntity>();
     private readonly Dictionary<string, TlpdEntity> maps = new Dictionary<string, TlpdEntity>();
     private readonly Dictionary<string, int> playerRaceImageIndex = new Dictionary<string, int>() { { "T", 0 }, { "Z", 1 }, { "P", 2 }, { "R", 3 } };
+    private readonly List<string> unknownPlayers = new List<string>();
+    private readonly List<string> unknownMaps = new List<string>();
 
     private readonly List<string> seriesOrder = new List<string>();
 
@@ -103,6 +105,8 @@ public class MgfService
     {
         players.Clear();
         maps.Clear();
+        unknownPlayers.Clear();
+        unknownMaps.Clear();
         seriesOrder.Clear();
 
         var p = new Processing(this);
@@ -110,7 +114,30 @@ public class MgfService
         using (var sw = new StringWriter())
         {
             p.Do(sr, false, true, sw);
-            return sw.ToString();
+
+            using (var headerWriter = new StringWriter())
+            {
+                if (unknownMaps.Count > 0)
+                {
+                    headerWriter.WriteLine("; unknown maps");
+                    int maxlength = (from map in unknownMaps select map.Length).Max();
+                    foreach (string map in unknownMaps)
+                        headerWriter.WriteLine("$map {0} = {1}", map.PadRight(maxlength, ' '), map);
+                    headerWriter.WriteLine();
+                }
+
+                if (unknownPlayers.Count > 0)
+                {
+                    headerWriter.WriteLine("; unknown players");
+                    int maxlength = (from player in unknownPlayers select player.Length).Max();
+                    foreach (string player in unknownPlayers)
+                        headerWriter.WriteLine("$player {0} = {1}", player.PadRight(maxlength, ' '), player);
+                    headerWriter.WriteLine();
+                }
+
+                headerWriter.WriteLine(sw.ToString());
+                return headerWriter.ToString();
+            }
         }
     }
 
@@ -859,16 +886,23 @@ public class MgfService
         }
         private void WriteGame(TextWriter writer, string left, string right, string map, bool leftwinner)
         {
-            string winnercode = leftwinner ? GetCodeOrDefault(svc.players, left) : GetCodeOrDefault(svc.players, right);
-            string losercode = leftwinner ? GetCodeOrDefault(svc.players, right) : GetCodeOrDefault(svc.players, left);
-            string mapcode = GetCodeOrDefault(svc.maps, map);
+            string leftcode = GetCodeOrDefault(svc.players, left, svc.unknownPlayers);
+            string rightcode = GetCodeOrDefault(svc.players, right, svc.unknownPlayers);
+            string winnercode = leftwinner ? leftcode : rightcode;
+            string losercode = leftwinner ? rightcode : leftcode;
+            string mapcode = GetCodeOrDefault(svc.maps, map, svc.unknownMaps);
             if (mapcode.Length == 0) mapcode = "[tlpd#maps#0#a]Unknown[/tlpd]";
             writer.WriteLine("[b]{0}[/b] < {2} > {1}", winnercode, losercode, mapcode);
         }
         private string GetCodeOrDefault(Dictionary<string, TlpdEntity> dict, string key)
         {
+            return GetCodeOrDefault(dict, key, null);
+        }
+        private string GetCodeOrDefault(Dictionary<string, TlpdEntity> dict, string key, List<string> unknown)
+        {
             TlpdEntity value;
             if (dict.TryGetValue(key, out value)) return value.CodeSimple;
+            if (unknown != null && !unknown.Contains(key)) unknown.Add(key);
             return key;
         }
     }

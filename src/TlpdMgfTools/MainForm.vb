@@ -452,7 +452,7 @@ Class MainForm
         Using dlg As New SaveFileDialog
             dlg.Filter = fileFilter
             If tab.Filename Is Nothing Then
-                dlg.FileName = tab.Text
+                dlg.FileName = tab.BaseText
             Else
                 Try
                     dlg.FileName = Path.GetFileName(tab.Filename)

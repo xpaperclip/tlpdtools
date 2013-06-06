@@ -3,7 +3,7 @@ TLPD Tools
 _A tool to make adding mass games to TLPD easier_
 
 **Latest Version**  
-v0.2:  http://pit.xpaperclip.net/tlpdtools/v0.2.zip
+v0.3:  http://pit.xpaperclip.net/tlpdtools/v0.3.zip
 
 This tool consists of an LP parser which reads brackets and match lists to generate a game list in a simple text format, and a processor which transforms a game list into BBcode which the 'Add Mass Games' function on TLPD will accept.
 

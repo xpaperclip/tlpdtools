@@ -63,10 +63,16 @@ Class MainForm
             End If
         End Using
     End Sub
+    Private Sub OpenLiquipediaBWPageMenuItem_Click(sender As Object, e As EventArgs) Handles OpenLiquipediaBWPageMenuItem.Click
+        Dim page As String = Nothing
+        If UI.InputBox(Me, "Open Liquipedia Page", "Page", page) = Windows.Forms.DialogResult.OK Then
+            OpenLpPage(page, "starcraft")
+        End If
+    End Sub
     Private Sub OpenLiquipediaPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenLiquipediaPageToolStripMenuItem.Click
         Dim page As String = Nothing
         If UI.InputBox(Me, "Open Liquipedia Page", "Page", page) = Windows.Forms.DialogResult.OK Then
-            OpenLpPage(page)
+            OpenLpPage(page, "starcraft2")
         End If
     End Sub
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
@@ -309,9 +315,10 @@ Class MainForm
     Private Sub ctl_DragDrop(sender As Object, e As DragEventArgs) Handles tabControl.DragDrop, mnuMenu.DragDrop, tlsToolbar.DragDrop
         If e.Data.GetDataPresent(DataFormats.Text) Then
             Dim text As String = e.Data.GetData(DataFormats.Text).ToString()
-            Dim lp_page As String = TryGetLpPage(text)
+            Dim lp As String = Nothing
+            Dim lp_page As String = TryGetLpPage(text, lp)
             If Not lp_page Is Nothing Then
-                OpenLpPage(lp_page)
+                OpenLpPage(lp_page, lp)
             End If
         ElseIf e.Data.GetDataPresent(DataFormats.FileDrop) Then
             Dim files As String() = CType(e.Data.GetData(DataFormats.FileDrop), String())
@@ -504,9 +511,16 @@ Class MainForm
     End Function
 
     Private Sub OpenLpPage(page As String)
+        OpenLpPage(page, "starcraft2")
+    End Sub
+    Private Sub OpenLpPage(page As String, lp As String)
         UseWaitCursor = True
 
-        If page.StartsWith("http://wiki.teamliquid.net/starcraft2/index.php?title=") AndAlso page.Contains("action=edit") Then
+        If lp Is Nothing Then
+            lp = "starcraft2"
+        End If
+
+        If page.StartsWith("http://wiki.teamliquid.net/" + lp + "/index.php?title=") AndAlso page.Contains("action=edit") Then
             Using frm = DownloadProgressForm.BeginDownload(page)
                 If frm.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                     Dim text As String = frm.Result
@@ -515,7 +529,7 @@ Class MainForm
                 End If
             End Using
         Else
-            Dim url As String = "http://wiki.teamliquid.net/starcraft2/api.php?format=xml&action=query&titles=" + _
+            Dim url As String = "http://wiki.teamliquid.net/" + lp + "/api.php?format=xml&action=query&titles=" + _
                 Uri.EscapeUriString(page.Replace("%20", " ").Replace(" ", "_")) + "&prop=revisions&rvprop=content"
             Using frm = DownloadProgressForm.BeginDownload(url)
                 If frm.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
@@ -532,15 +546,30 @@ Class MainForm
         UseWaitCursor = False
     End Sub
     Private Function TryGetLpPage(url As String) As String
+        Dim lp As String = Nothing
+        Return TryGetLpPage(url, lp)
+    End Function
+    Private Function TryGetLpPage(url As String, ByRef lp As String) As String
         Try
             If url.StartsWith("http://wiki.teamliquid.net/starcraft2/index.php?title=") AndAlso url.Contains("action=edit") Then
+                lp = "starcraft2"
+                Return url
+            End If
+
+            If url.StartsWith("http://wiki.teamliquid.net/starcraft/index.php?title=") AndAlso url.Contains("action=edit") Then
+                lp = "starcraft"
                 Return url
             End If
 
             Dim uri As New Uri(url)
             If uri.Host.ToLower() = "wiki.teamliquid.net" Then
                 If uri.AbsolutePath.StartsWith("/starcraft2/") Then
+                    lp = "starcraft2"
                     Return uri.AbsolutePath.Substring("/starcraft2/".Length)
+                End If
+                If uri.AbsolutePath.StartsWith("/starcraft/") Then
+                    lp = "starcraft"
+                    Return uri.AbsolutePath.Substring("/starcraft/".Length)
                 End If
             End If
         Catch ex As Exception

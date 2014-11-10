@@ -28,6 +28,7 @@ Partial Class MainForm
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenLiquipediaBWPageMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenLiquipediaPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -83,6 +84,10 @@ Partial Class MainForm
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.iglAutocomplete = New System.Windows.Forms.ImageList(Me.components)
         Me.mnuContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Open0ToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenLinkToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyLinkToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LinkContextMenuSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.TLPDizeToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.CutToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,9 +95,6 @@ Partial Class MainForm
         Me.PasteToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LinkContextMenuSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenLinkToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CopyLinkToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuTabContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SaveToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseTabToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -100,7 +102,6 @@ Partial Class MainForm
         Me.CloseAllButThisToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenContainingFolderToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Open0ToolStripContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuMenu.SuspendLayout()
         Me.tlsToolbar.SuspendLayout()
         Me.mnuContext.SuspendLayout()
@@ -120,7 +121,7 @@ Partial Class MainForm
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.OpenLiquipediaPageToolStripMenuItem, Me.ToolStripMenuItem2, Me.CloseToolStripMenuItem, Me.CloseAllToolStripMenuItem, Me.ToolStripMenuItem3, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.SaveAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.OpenLiquipediaBWPageMenuItem, Me.OpenLiquipediaPageToolStripMenuItem, Me.ToolStripMenuItem2, Me.CloseToolStripMenuItem, Me.CloseAllToolStripMenuItem, Me.ToolStripMenuItem3, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.SaveAllToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "&File"
@@ -140,6 +141,13 @@ Partial Class MainForm
         Me.OpenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
         Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.OpenToolStripMenuItem.Text = "&Open..."
+        '
+        'OpenLiquipediaBWPageMenuItem
+        '
+        Me.OpenLiquipediaBWPageMenuItem.Image = CType(resources.GetObject("OpenLiquipediaBWPageMenuItem.Image"), System.Drawing.Image)
+        Me.OpenLiquipediaBWPageMenuItem.Name = "OpenLiquipediaBWPageMenuItem"
+        Me.OpenLiquipediaBWPageMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.OpenLiquipediaBWPageMenuItem.Text = "Open Liquipedia &BW Page..."
         '
         'OpenLiquipediaPageToolStripMenuItem
         '
@@ -522,7 +530,32 @@ Partial Class MainForm
         '
         Me.mnuContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Open0ToolStripContextMenuItem, Me.OpenLinkToolStripContextMenuItem, Me.CopyLinkToolStripContextMenuItem, Me.LinkContextMenuSeparator, Me.TLPDizeToolStripContextMenuItem, Me.ToolStripMenuItem6, Me.CutToolStripContextMenuItem, Me.CopyToolStripContextMenuItem, Me.PasteToolStripContextMenuItem, Me.ToolStripMenuItem7, Me.SelectAllToolStripContextMenuItem})
         Me.mnuContext.Name = "mnuContext"
-        Me.mnuContext.Size = New System.Drawing.Size(193, 220)
+        Me.mnuContext.Size = New System.Drawing.Size(193, 198)
+        '
+        'Open0ToolStripContextMenuItem
+        '
+        Me.Open0ToolStripContextMenuItem.Image = CType(resources.GetObject("Open0ToolStripContextMenuItem.Image"), System.Drawing.Image)
+        Me.Open0ToolStripContextMenuItem.Name = "Open0ToolStripContextMenuItem"
+        Me.Open0ToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.Open0ToolStripContextMenuItem.Text = "&Open {0}"
+        '
+        'OpenLinkToolStripContextMenuItem
+        '
+        Me.OpenLinkToolStripContextMenuItem.Image = CType(resources.GetObject("OpenLinkToolStripContextMenuItem.Image"), System.Drawing.Image)
+        Me.OpenLinkToolStripContextMenuItem.Name = "OpenLinkToolStripContextMenuItem"
+        Me.OpenLinkToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.OpenLinkToolStripContextMenuItem.Text = "&Open link in browser..."
+        '
+        'CopyLinkToolStripContextMenuItem
+        '
+        Me.CopyLinkToolStripContextMenuItem.Name = "CopyLinkToolStripContextMenuItem"
+        Me.CopyLinkToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.CopyLinkToolStripContextMenuItem.Text = "Copy &link address"
+        '
+        'LinkContextMenuSeparator
+        '
+        Me.LinkContextMenuSeparator.Name = "LinkContextMenuSeparator"
+        Me.LinkContextMenuSeparator.Size = New System.Drawing.Size(189, 6)
         '
         'TLPDizeToolStripContextMenuItem
         '
@@ -571,24 +604,6 @@ Partial Class MainForm
         Me.SelectAllToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.SelectAllToolStripContextMenuItem.Text = "Select &All"
         '
-        'LinkContextMenuSeparator
-        '
-        Me.LinkContextMenuSeparator.Name = "LinkContextMenuSeparator"
-        Me.LinkContextMenuSeparator.Size = New System.Drawing.Size(189, 6)
-        '
-        'OpenLinkToolStripContextMenuItem
-        '
-        Me.OpenLinkToolStripContextMenuItem.Image = CType(resources.GetObject("OpenLinkToolStripContextMenuItem.Image"), System.Drawing.Image)
-        Me.OpenLinkToolStripContextMenuItem.Name = "OpenLinkToolStripContextMenuItem"
-        Me.OpenLinkToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.OpenLinkToolStripContextMenuItem.Text = "&Open link in browser..."
-        '
-        'CopyLinkToolStripContextMenuItem
-        '
-        Me.CopyLinkToolStripContextMenuItem.Name = "CopyLinkToolStripContextMenuItem"
-        Me.CopyLinkToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.CopyLinkToolStripContextMenuItem.Text = "Copy &link address"
-        '
         'mnuTabContext
         '
         Me.mnuTabContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripContextMenuItem, Me.CloseTabToolStripContextMenuItem, Me.CloseAllToolStripContextMenuItem, Me.CloseAllButThisToolStripContextMenuItem, Me.ToolStripMenuItem8, Me.OpenContainingFolderToolStripContextMenuItem})
@@ -631,13 +646,6 @@ Partial Class MainForm
         Me.OpenContainingFolderToolStripContextMenuItem.Name = "OpenContainingFolderToolStripContextMenuItem"
         Me.OpenContainingFolderToolStripContextMenuItem.Size = New System.Drawing.Size(201, 22)
         Me.OpenContainingFolderToolStripContextMenuItem.Text = "Open Con&taining Folder"
-        '
-        'Open0ToolStripContextMenuItem
-        '
-        Me.Open0ToolStripContextMenuItem.Image = CType(resources.GetObject("Open0ToolStripContextMenuItem.Image"), System.Drawing.Image)
-        Me.Open0ToolStripContextMenuItem.Name = "Open0ToolStripContextMenuItem"
-        Me.Open0ToolStripContextMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.Open0ToolStripContextMenuItem.Text = "&Open {0}"
         '
         'MainForm
         '
@@ -739,4 +747,5 @@ Partial Class MainForm
     Friend WithEvents GithubToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Open0ToolStripContextMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OpenLiquipediaBWPageMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

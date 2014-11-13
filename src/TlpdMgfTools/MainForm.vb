@@ -14,13 +14,27 @@ Class MainForm
         InitializeComponent()
     End Sub
 
-    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cmbTlpdDatabase.Items.Add(New TlpdDatabase("SC2 Heart of the Swarm", "hots", "sc2-hots"))
-        cmbTlpdDatabase.Items.Add(New TlpdDatabase("SC2 WoL Korean", "sc2-korean", "sc2-korean"))
-        cmbTlpdDatabase.Items.Add(New TlpdDatabase("SC2 WoL International", "sc2-international", "sc2-intl"))
-        cmbTlpdDatabase.Items.Add(New TlpdDatabase("BW Korean SOSPA", "sospa", "bw-sospa"))
-        cmbTlpdDatabase.Items.Add(New TlpdDatabase("BW Korean Pro", "korean", "bw-korean"))
-        cmbTlpdDatabase.Items.Add(New TlpdDatabase("BW International", "international", "bw-intl"))
+    Private Sub MainForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        If File.Exists("databases.dict") Then
+            Using sr As New StreamReader("databases.dict")
+                Dim s As String
+                While True
+                    s = sr.ReadLine()
+                    If s Is Nothing Then Exit While
+                    If s.Length = 0 OrElse s.StartsWith(";") Then Continue While
+                    Dim xs As String() = s.Split(","c)
+                    cmbTlpdDatabase.Items.Add(New TlpdDatabase(xs(0), xs(1), xs(2)))
+                End While
+            End Using
+        Else
+            ' default set
+            cmbTlpdDatabase.Items.Add(New TlpdDatabase("SC2 Heart of the Swarm", "hots", "sc2-hots"))
+            cmbTlpdDatabase.Items.Add(New TlpdDatabase("SC2 WoL Korean", "sc2-korean", "sc2-korean"))
+            cmbTlpdDatabase.Items.Add(New TlpdDatabase("SC2 WoL International", "sc2-international", "sc2-intl"))
+            cmbTlpdDatabase.Items.Add(New TlpdDatabase("BW Korean SOSPA", "sospa", "bw-sospa"))
+            cmbTlpdDatabase.Items.Add(New TlpdDatabase("BW Korean Pro", "korean", "bw-korean"))
+            cmbTlpdDatabase.Items.Add(New TlpdDatabase("BW International", "international", "bw-intl"))
+        End If
         cmbTlpdDatabase.SelectedIndex = 0
 
         If File.Exists("README.mgf") Then
